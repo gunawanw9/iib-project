@@ -734,6 +734,22 @@ refer to the applicable agreement for further details.
 	(annotation_block (location)(rect -1880 3520 -1824 3544))
 )
 (pin
+	(output)
+	(rect 504 1080 680 1096)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "FPGA_GPIO_TX" (rect 90 0 170 12)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(pin
 	(bidir)
 	(rect -2208 1888 -2022 1904)
 	(text "BIDIR" (rect 1 0 25 10)(font "Arial" (font_size 6)))
@@ -2145,69 +2161,6 @@ refer to the applicable agreement for further details.
 	)
 )
 (symbol
-	(rect -2000 -536 -1712 -392)
-	(text "gpio_ctrl_top" (rect 5 0 67 12)(font "Arial" ))
-	(text "inst19" (rect 8 128 37 140)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "mux_sel[bus_width-1..0]" (rect 0 0 119 12)(font "Arial" ))
-		(text "mux_sel[bus_width-1..0]" (rect 21 27 140 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32)(line_width 3))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "dir_0[bus_width-1..0]" (rect 0 0 101 12)(font "Arial" ))
-		(text "dir_0[bus_width-1..0]" (rect 21 43 122 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48)(line_width 3))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "dir_1[bus_width-1..0]" (rect 0 0 101 12)(font "Arial" ))
-		(text "dir_1[bus_width-1..0]" (rect 21 59 122 71)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64)(line_width 3))
-	)
-	(port
-		(pt 0 80)
-		(input)
-		(text "out_val_0[bus_width-1..0]" (rect 0 0 126 12)(font "Arial" ))
-		(text "out_val_0[bus_width-1..0]" (rect 21 75 147 87)(font "Arial" ))
-		(line (pt 0 80)(pt 16 80)(line_width 3))
-	)
-	(port
-		(pt 0 96)
-		(input)
-		(text "out_val_1[bus_width-1..0]" (rect 0 0 126 12)(font "Arial" ))
-		(text "out_val_1[bus_width-1..0]" (rect 21 91 147 103)(font "Arial" ))
-		(line (pt 0 96)(pt 16 96)(line_width 3))
-	)
-	(port
-		(pt 288 48)
-		(output)
-		(text "gpio_in[bus_width-1..0]" (rect 0 0 112 12)(font "Arial" ))
-		(text "gpio_in[bus_width-1..0]" (rect 107 43 219 55)(font "Arial" ))
-		(line (pt 288 48)(pt 272 48)(line_width 3))
-	)
-	(port
-		(pt 288 32)
-		(bidir)
-		(text "gpio[bus_width-1..0]" (rect 0 0 97 12)(font "Arial" ))
-		(text "gpio[bus_width-1..0]" (rect 192 27 289 39)(font "Arial" ))
-		(line (pt 288 32)(pt 272 32)(line_width 3))
-	)
-	(parameter
-		"bus_width"
-		"8"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(drawing
-		(rectangle (rect 16 16 272 128))
-	)
-	(annotation_block (parameter)(rect -2000 -600 -1704 -552))
-)
-(symbol
 	(rect -2848 3048 -2784 3128)
 	(text "OR4" (rect 1 0 19 10)(font "Arial" (font_size 6)))
 	(text "inst28" (rect 3 69 32 81)(font "Arial" ))
@@ -2389,69 +2342,6 @@ refer to the applicable agreement for further details.
 		(line (pt 44 80)(pt 68 64))
 	)
 	(annotation_block (parameter)(rect -2512 -568 -2320 -526))
-)
-(symbol
-	(rect -2000 -288 -1712 -144)
-	(text "gpio_ctrl_top" (rect 5 0 67 12)(font "Arial" ))
-	(text "inst26" (rect 8 128 37 140)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "mux_sel[bus_width-1..0]" (rect 0 0 119 12)(font "Arial" ))
-		(text "mux_sel[bus_width-1..0]" (rect 21 27 140 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32)(line_width 3))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "dir_0[bus_width-1..0]" (rect 0 0 101 12)(font "Arial" ))
-		(text "dir_0[bus_width-1..0]" (rect 21 43 122 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48)(line_width 3))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "dir_1[bus_width-1..0]" (rect 0 0 101 12)(font "Arial" ))
-		(text "dir_1[bus_width-1..0]" (rect 21 59 122 71)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64)(line_width 3))
-	)
-	(port
-		(pt 0 80)
-		(input)
-		(text "out_val_0[bus_width-1..0]" (rect 0 0 126 12)(font "Arial" ))
-		(text "out_val_0[bus_width-1..0]" (rect 21 75 147 87)(font "Arial" ))
-		(line (pt 0 80)(pt 16 80)(line_width 3))
-	)
-	(port
-		(pt 0 96)
-		(input)
-		(text "out_val_1[bus_width-1..0]" (rect 0 0 126 12)(font "Arial" ))
-		(text "out_val_1[bus_width-1..0]" (rect 21 91 147 103)(font "Arial" ))
-		(line (pt 0 96)(pt 16 96)(line_width 3))
-	)
-	(port
-		(pt 288 48)
-		(output)
-		(text "gpio_in[bus_width-1..0]" (rect 0 0 112 12)(font "Arial" ))
-		(text "gpio_in[bus_width-1..0]" (rect 107 43 219 55)(font "Arial" ))
-		(line (pt 288 48)(pt 272 48)(line_width 3))
-	)
-	(port
-		(pt 288 32)
-		(bidir)
-		(text "gpio[bus_width-1..0]" (rect 0 0 97 12)(font "Arial" ))
-		(text "gpio[bus_width-1..0]" (rect 192 27 289 39)(font "Arial" ))
-		(line (pt 288 32)(pt 272 32)(line_width 3))
-	)
-	(parameter
-		"bus_width"
-		"2"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(drawing
-		(rectangle (rect 16 16 272 128))
-	)
-	(annotation_block (parameter)(rect -2000 -352 -1708 -310))
 )
 (symbol
 	(rect -2168 3040 -1912 3344)
@@ -3940,6 +3830,13 @@ refer to the applicable agreement for further details.
 		(text "smpl_cmp_err" (rect 329 235 387 247)(font "Arial" ))
 		(line (pt 408 240)(pt 392 240))
 	)
+	(port
+		(pt 408 256)
+		(output)
+		(text "tx_ext_flag" (rect 0 0 55 12)(font "Arial" ))
+		(text "tx_ext_flag" (rect 341 251 387 263)(font "Arial" ))
+		(line (pt 408 256)(pt 392 256))
+	)
 	(parameter
 		"dev_family"
 		"MAX 10"
@@ -3999,6 +3896,132 @@ refer to the applicable agreement for further details.
 		(rectangle (rect 16 16 392 544))
 	)
 	(annotation_block (parameter)(rect 456 24 888 648))
+)
+(symbol
+	(rect -2000 -536 -1712 -392)
+	(text "gpio_ctrl_top" (rect 5 0 67 12)(font "Arial" ))
+	(text "inst19" (rect 8 128 37 140)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "mux_sel[bus_width-1..0]" (rect 0 0 119 12)(font "Arial" ))
+		(text "mux_sel[bus_width-1..0]" (rect 21 27 140 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "dir_0[bus_width-1..0]" (rect 0 0 101 12)(font "Arial" ))
+		(text "dir_0[bus_width-1..0]" (rect 21 43 122 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "dir_1[bus_width-1..0]" (rect 0 0 101 12)(font "Arial" ))
+		(text "dir_1[bus_width-1..0]" (rect 21 59 122 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "out_val_0[bus_width-1..0]" (rect 0 0 126 12)(font "Arial" ))
+		(text "out_val_0[bus_width-1..0]" (rect 21 75 147 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "out_val_1[bus_width-1..0]" (rect 0 0 126 12)(font "Arial" ))
+		(text "out_val_1[bus_width-1..0]" (rect 21 91 147 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96)(line_width 3))
+	)
+	(port
+		(pt 288 48)
+		(output)
+		(text "gpio_in[bus_width-1..0]" (rect 0 0 112 12)(font "Arial" ))
+		(text "gpio_in[bus_width-1..0]" (rect 173 43 267 55)(font "Arial" ))
+		(line (pt 288 48)(pt 272 48)(line_width 3))
+	)
+	(port
+		(pt 288 32)
+		(bidir)
+		(text "gpio[bus_width-1..0]" (rect 0 0 97 12)(font "Arial" ))
+		(text "gpio[bus_width-1..0]" (rect 192 27 289 39)(font "Arial" ))
+		(line (pt 288 32)(pt 272 32)(line_width 3))
+	)
+	(parameter
+		"bus_width"
+		"8"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 272 128))
+	)
+	(annotation_block (parameter)(rect -2000 -600 -1704 -552))
+)
+(symbol
+	(rect -2000 -288 -1712 -144)
+	(text "gpio_ctrl_top" (rect 5 0 67 12)(font "Arial" ))
+	(text "inst26" (rect 8 128 37 140)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "mux_sel[bus_width-1..0]" (rect 0 0 119 12)(font "Arial" ))
+		(text "mux_sel[bus_width-1..0]" (rect 21 27 140 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "dir_0[bus_width-1..0]" (rect 0 0 101 12)(font "Arial" ))
+		(text "dir_0[bus_width-1..0]" (rect 21 43 122 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "dir_1[bus_width-1..0]" (rect 0 0 101 12)(font "Arial" ))
+		(text "dir_1[bus_width-1..0]" (rect 21 59 122 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "out_val_0[bus_width-1..0]" (rect 0 0 126 12)(font "Arial" ))
+		(text "out_val_0[bus_width-1..0]" (rect 21 75 147 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "out_val_1[bus_width-1..0]" (rect 0 0 126 12)(font "Arial" ))
+		(text "out_val_1[bus_width-1..0]" (rect 21 91 147 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96)(line_width 3))
+	)
+	(port
+		(pt 288 48)
+		(output)
+		(text "gpio_in[bus_width-1..0]" (rect 0 0 112 12)(font "Arial" ))
+		(text "gpio_in[bus_width-1..0]" (rect 173 43 267 55)(font "Arial" ))
+		(line (pt 288 48)(pt 272 48)(line_width 3))
+	)
+	(port
+		(pt 288 32)
+		(bidir)
+		(text "gpio[bus_width-1..0]" (rect 0 0 97 12)(font "Arial" ))
+		(text "gpio[bus_width-1..0]" (rect 192 27 289 39)(font "Arial" ))
+		(line (pt 288 32)(pt 272 32)(line_width 3))
+	)
+	(parameter
+		"bus_width"
+		"2"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 272 128))
+	)
+	(annotation_block (parameter)(rect -2000 -352 -1708 -310))
 )
 (connector
 	(text "beat" (rect -2082 -776 -2061 -764)(font "Arial" ))
@@ -4981,7 +5004,7 @@ refer to the applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "BOARD_GPIO_RD[7..0]" (rect -1682 -504 -1562 -492)(font "Arial" ))
+	(text "BOARD_GPIO_RD[7..0]" (rect -1682 -480 -1562 -468)(font "Arial" ))
 	(pt -1712 -488)
 	(pt -1608 -488)
 	(bus)
@@ -5295,7 +5318,7 @@ refer to the applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "BOARD_GPIO_RD[9..8]" (rect -1671 -256 -1551 -244)(font "Arial" ))
+	(text "BOARD_GPIO_RD[9..8]" (rect -1671 -232 -1551 -220)(font "Arial" ))
 	(pt -1712 -240)
 	(pt -1584 -240)
 	(bus)
@@ -5686,6 +5709,10 @@ refer to the applicable agreement for further details.
 	(text "FPGA_EGPIO[0]" (rect -118 1328 -42 1345)(font "Intel Clear" ))
 	(pt 40 1344)
 	(pt -120 1344)
+)
+(connector
+	(pt 448 1088)
+	(pt 504 1088)
 )
 (junction (pt -2624 4472))
 (junction (pt -2624 4488))

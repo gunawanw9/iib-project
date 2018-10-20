@@ -1,5 +1,5 @@
 Flow report for LimeSDR-Mini_lms7_trx
-Sat Oct 20 17:04:09 2018
+Sat Oct 20 22:47:03 2018
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -40,18 +40,18 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Sat Oct 20 17:04:09 2018       ;
+; Flow Status                        ; Successful - Sat Oct 20 22:47:03 2018       ;
 ; Quartus Prime Version              ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                      ; LimeSDR-Mini_lms7_trx                       ;
 ; Top-level Entity Name              ; lms7_trx_top                                ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M16SAU169C8G                              ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 12,538 / 15,840 ( 79 % )                    ;
-;     Total combinational functions  ; 8,826 / 15,840 ( 56 % )                     ;
-;     Dedicated logic registers      ; 9,591 / 15,840 ( 61 % )                     ;
-; Total registers                    ; 9689                                        ;
-; Total pins                         ; 117 / 130 ( 90 % )                          ;
+; Total logic elements               ; 12,637 / 15,840 ( 80 % )                    ;
+;     Total combinational functions  ; 8,948 / 15,840 ( 56 % )                     ;
+;     Dedicated logic registers      ; 9,627 / 15,840 ( 61 % )                     ;
+; Total registers                    ; 9725                                        ;
+; Total pins                         ; 118 / 130 ( 91 % )                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 412,178 / 562,176 ( 73 % )                  ;
 ; Embedded Multiplier 9-bit elements ; 0 / 90 ( 0 % )                              ;
@@ -66,7 +66,7 @@ refer to the applicable agreement for further details.
 +-------------------+-----------------------+
 ; Option            ; Setting               ;
 +-------------------+-----------------------+
-; Start date & time ; 10/20/2018 17:01:02   ;
+; Start date & time ; 10/20/2018 22:43:53   ;
 ; Main task         ; Compilation           ;
 ; Revision Name     ; LimeSDR-Mini_lms7_trx ;
 +-------------------+-----------------------+
@@ -79,7 +79,7 @@ refer to the applicable agreement for further details.
 +--------------------------------------+--------------------------------------------------------------------+-----------------------+---------------------+----------------+
 ; AUTO_GLOBAL_REGISTER_CONTROLS        ; Off                                                                ; On                    ; --                  ; --             ;
 ; AUTO_MERGE_PLLS                      ; Off                                                                ; On                    ; --                  ; --             ;
-; COMPILER_SIGNATURE_ID                ; 247207020763957.154005126210508                                    ; --                    ; --                  ; --             ;
+; COMPILER_SIGNATURE_ID                ; 247207020763957.154007183217272                                    ; --                    ; --                  ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT               ; Vhdl                                                               ; --                    ; --                  ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (VHDL)                                             ; <None>                ; --                  ; --             ;
 ; ENABLE_SIGNALTAP                     ; Off                                                                ; --                    ; --                  ; --             ;
@@ -152,13 +152,13 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:01:12     ; 1.0                     ; 5182 MB             ; 00:01:27                           ;
-; Fitter               ; 00:01:16     ; 1.4                     ; 6098 MB             ; 00:02:42                           ;
-; Assembler            ; 00:00:02     ; 1.0                     ; 4757 MB             ; 00:00:02                           ;
-; Power Analyzer       ; 00:00:09     ; 2.1                     ; 4994 MB             ; 00:00:18                           ;
-; Timing Analyzer      ; 00:00:10     ; 2.5                     ; 4992 MB             ; 00:00:20                           ;
-; EDA Netlist Writer   ; 00:00:04     ; 1.0                     ; 4826 MB             ; 00:00:04                           ;
-; Total                ; 00:02:53     ; --                      ; --                  ; 00:04:53                           ;
+; Analysis & Synthesis ; 00:01:12     ; 1.0                     ; 5173 MB             ; 00:01:27                           ;
+; Fitter               ; 00:01:19     ; 1.4                     ; 6096 MB             ; 00:02:51                           ;
+; Assembler            ; 00:00:02     ; 1.0                     ; 4752 MB             ; 00:00:02                           ;
+; Power Analyzer       ; 00:00:09     ; 2.2                     ; 4993 MB             ; 00:00:19                           ;
+; Timing Analyzer      ; 00:00:10     ; 2.5                     ; 4993 MB             ; 00:00:20                           ;
+; EDA Netlist Writer   ; 00:00:04     ; 1.0                     ; 4831 MB             ; 00:00:04                           ;
+; Total                ; 00:02:56     ; --                      ; --                  ; 00:05:03                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

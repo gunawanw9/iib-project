@@ -108,6 +108,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "FPGA_GPIO_TX",
+					"strict" : false
+				},
+				{
 					"name" : "LMS_DIQ1[11]",
 					"strict" : false
 				},

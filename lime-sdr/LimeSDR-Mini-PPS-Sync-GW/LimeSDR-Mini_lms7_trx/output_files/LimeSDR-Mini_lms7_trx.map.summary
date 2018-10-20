@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Sat Oct 20 17:02:19 2018
+Analysis & Synthesis Status : Successful - Sat Oct 20 22:45:09 2018
 Quartus Prime Version : 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 Revision Name : LimeSDR-Mini_lms7_trx
 Top-level Entity Name : lms7_trx_top
 Family : MAX 10
-Total logic elements : 14,465
-    Total combinational functions : 8,805
-    Dedicated logic registers : 9,659
-Total registers : 9689
-Total pins : 117
+Total logic elements : 14,589
+    Total combinational functions : 8,927
+    Dedicated logic registers : 9,695
+Total registers : 9725
+Total pins : 118
 Total virtual pins : 0
 Total memory bits : 412,178
 Embedded Multiplier 9-bit elements : 0

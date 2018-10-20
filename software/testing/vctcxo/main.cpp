@@ -54,7 +54,7 @@ int main(int argc, char** argv){
     uint64_t prev_pps_sync_idx = 0;
 
     /* VCTCXO DAC Controller - 0 to 4095 -> 0v to 2.538v */
-    uint16_t dac_value = 3202;
+    uint16_t dac_value = 3229;
     uint16_t tmp_value = 0;
     
     double target_freq = 30720000;

@@ -154,7 +154,7 @@ VCC_ONE                      : G6        : power  :                   : 3.0V/3.3
 GND                          : G7        : gnd    :                   :         :           :                
 VCC_ONE                      : G8        : power  :                   : 3.0V/3.3V :           :                
 FT_CLK                       : G9        : input  : 3.3-V LVCMOS      :         : 6         : Y              
-FPGA_GPIO[7]                 : G10       : bidir  : 3.3-V LVCMOS      :         : 6         : Y              
+FPGA_GPIO_TX                 : G10       : output : 3.3-V LVCMOS      :         : 6         : Y              
 VCCIO6                       : G11       : power  :                   : 3.3V    : 6         :                
 FT_D[27]                     : G12       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
 FT_D[29]                     : G13       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
@@ -167,7 +167,7 @@ LMK_CLK                      : H6        : input  : 2.5 V             :         
 VCC_ONE                      : H7        : power  :                   : 3.0V/3.3V :           :                
 FT_D[9]                      : H8        : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
 FT_D[15]                     : H9        : bidir  : 3.3-V LVCMOS      :         : 5         : Y              
-RESERVED_INPUT               : H10       :        :                   :         : 5         :                
+FPGA_GPIO[7]                 : H10       : bidir  : 3.3-V LVCMOS      :         : 5         : N              
 VCCIO5                       : H11       : power  :                   : 3.3V    : 5         :                
 GND                          : H12       : gnd    :                   :         :           :                
 FT_D[31]                     : H13       : bidir  : 3.3-V LVCMOS      :         : 5         : Y              

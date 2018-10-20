@@ -14,64 +14,67 @@ use ieee.numeric_std.all;
 -- ----------------------------------------------------------------------------
 entity rx_path_top is
   generic( 
-    dev_family				    : string := "Cyclone IV E";
-    iq_width					    : integer := 12;
+    dev_family				  : string := "Cyclone IV E";
+    iq_width				  : integer := 12;
     invert_input_clocks	  : string := "OFF";
     smpl_buff_rdusedw_w   : integer := 11; --bus width in bits 
     pct_buff_wrusedw_w    : integer := 12  --bus width in bits 
   );
   port (
-    clk                   : in std_logic;
-    reset_n               : in std_logic;
-		io_reset_n				    : in std_logic;
-		test_ptrn_en			    : in std_logic;
-		smpl_src_sel			    : in std_logic;	-- 0 - RX data, 1 - smpl_fifo 
+   clk                   : in std_logic;
+   reset_n               : in std_logic;
+	io_reset_n				 : in std_logic;
+	test_ptrn_en			 : in std_logic;
+	smpl_src_sel			 : in std_logic;	-- 0 - RX data, 1 - smpl_fifo 
+   
+   --Mode settings
+   sample_width          : in std_logic_vector(1 downto 0); --"10"-12bit, "01"-14bit, "00"-16bit;
+   mode			          : in std_logic; -- JESD207: 1; TRXIQ: 0
+	trxiqpulse	          : in std_logic; -- trxiqpulse on: 1; trxiqpulse off: 0
+	ddr_en 		          : in std_logic; -- DDR: 1; SDR: 0
+	mimo_en		          : in std_logic; -- SISO: 1; MIMO: 0
+	ch_en			          : in std_logic_vector(1 downto 0); --"01" - Ch. A, "10" - Ch. B, "11" - Ch. A and Ch. B. 
+	fidm			          : in std_logic; -- External Frame ID mode. Frame start at fsync = 0, when 0. Frame start at fsync = 1, when 1.
     
-    --Mode settings
-    sample_width          : in std_logic_vector(1 downto 0); --"10"-12bit, "01"-14bit, "00"-16bit;
-    mode			            : in std_logic; -- JESD207: 1; TRXIQ: 0
-		trxiqpulse	          : in std_logic; -- trxiqpulse on: 1; trxiqpulse off: 0
-		ddr_en 		            : in std_logic; -- DDR: 1; SDR: 0
-		mimo_en		            : in std_logic; -- SISO: 1; MIMO: 0
-		ch_en			            : in std_logic_vector(1 downto 0); --"01" - Ch. A, "10" - Ch. B, "11" - Ch. A and Ch. B. 
-		fidm			            : in std_logic; -- External Frame ID mode. Frame start at fsync = 0, when 0. Frame start at fsync = 1, when 1.
-    
-    --Rx interface data 
-    DIQ		 	              : in std_logic_vector(iq_width-1 downto 0);
-		fsync	 	              : in std_logic;
-		DIQ_h						      : out std_logic_vector(iq_width downto 0);
-		DIQ_l						      : out std_logic_vector(iq_width downto 0);
-    
-    --samples
-		smpl_fifo_wrreq		    : in std_logic;
-		smpl_fifo_data			  : in std_logic_vector(iq_width*4-1 downto 0);
-		smpl_fifo_wfull	      : out std_logic;
-    smpl_fifo_wrreq_out   : out std_logic;
-    
-    --Packet fifo ports 
-    pct_fifo_wusedw      : in std_logic_vector(pct_buff_wrusedw_w-1 downto 0);
-    pct_fifo_wrreq       : out std_logic;
-    pct_fifo_wdata       : out std_logic_vector(63 downto 0);
-    pct_hdr_cap          : out std_logic;
-    
-    --sample nr
-    clr_smpl_nr          : in std_logic;
-    ld_smpl_nr           : in std_logic;
-    smpl_nr_in           : in std_logic_vector(63 downto 0);
-    smpl_nr_cnt          : buffer std_logic_vector(63 downto 0);
-    
-    --flag control
-    tx_pct_loss          : in std_logic;
-    tx_pct_loss_clr      : in std_logic;
-    
-    --sample compare
-    smpl_cmp_start       : in std_logic;
-    smpl_cmp_length      : in std_logic_vector(15 downto 0);
-    smpl_cmp_done        : out std_logic;
-    smpl_cmp_err         : out std_logic;
+   --Rx interface data 
+   DIQ		 	          : in std_logic_vector(iq_width-1 downto 0);
+	fsync	 	             : in std_logic;
+	DIQ_h					    : out std_logic_vector(iq_width downto 0);
+	DIQ_l					    : out std_logic_vector(iq_width downto 0);
+   
+   --samples
+	smpl_fifo_wrreq		 : in std_logic;
+	smpl_fifo_data			 : in std_logic_vector(iq_width*4-1 downto 0);
+	smpl_fifo_wfull	    : out std_logic;
+   smpl_fifo_wrreq_out   : out std_logic;
+   
+   --Packet fifo ports 
+   pct_fifo_wusedw      : in std_logic_vector(pct_buff_wrusedw_w-1 downto 0);
+   pct_fifo_wrreq       : out std_logic;
+   pct_fifo_wdata       : out std_logic_vector(63 downto 0);
+   pct_hdr_cap          : out std_logic;
+   
+   --sample nr
+   clr_smpl_nr          : in std_logic;
+   ld_smpl_nr           : in std_logic;
+   smpl_nr_in           : in std_logic_vector(63 downto 0);
+   smpl_nr_cnt          : buffer std_logic_vector(63 downto 0);
+   
+   --flag control
+   tx_pct_loss          : in std_logic;
+   tx_pct_loss_clr      : in std_logic;
+   
+   --sample compare
+   smpl_cmp_start       : in std_logic;
+   smpl_cmp_length      : in std_logic_vector(15 downto 0);
+   smpl_cmp_done        : out std_logic;
+   smpl_cmp_err         : out std_logic;
 		
-		-- EDIT: External RX Sync Flag
-		ext_flag					: in std_logic
+	-- EDIT: External RX Sync Flag
+	ext_flag					: in std_logic;
+	
+	-- EDIT: TX Event Flag
+	tx_evt					: out std_logic
      
   );
 end rx_path_top;
@@ -105,11 +108,16 @@ signal smpl_cmp_start_sync    : std_logic;
 signal smpl_cmp_length_sync   : std_logic_vector(15 downto 0);		 
 
 -- EDIT:
-signal ext_flag_sync				  : std_logic;                      -- Buffered PPS signal
+signal ext_flag_sync				: std_logic;                      -- Buffered PPS signal
 signal ext_flag_sync_d        : std_logic;                      -- Above delayed one clock cycle
-signal flag_capture_q			    : std_logic_vector(63 downto 0);  -- Counter value at PPS sync event
-signal since_wrreq            : std_logic_vector(1 downto 0);    -- Clock cycles since sample arriving in FIFO
+signal flag_capture_q			: std_logic_vector(63 downto 0);  -- Counter value at PPS sync event
+signal since_wrreq            : std_logic_vector(1 downto 0);   -- Clock cycles since sample arriving in FIFO
 signal my_mode                : std_logic_vector(1 downto 0);   -- Operating mode of LimeLight IQ interface
+
+signal curr_flag_sync			: std_logic;                      -- PPS Edge Detection
+signal prev_flag_sync			: std_logic;                      -- PPS Edge Detection
+signal cntr_rst					: std_logic;							 -- Reset Counter on PPS Edge
+
 
 --inst0 
 signal inst0_fifo_wrreq       : std_logic;
@@ -133,7 +141,7 @@ signal delay_chain   : my_array;
 signal tx_pct_loss_detect     : std_logic;
 
 signal smpl_fifo_wrreq_mux		: std_logic;
-signal smpl_fifo_data_mux		  : std_logic_vector(iq_width*4-1 downto 0);
+signal smpl_fifo_data_mux		: std_logic_vector(iq_width*4-1 downto 0);
 
 signal smpl_fifo_wrreq_mux_reg: std_logic;
 signal smpl_fifo_data_mux_reg	: std_logic_vector(iq_width*4-1 downto 0);
@@ -340,10 +348,10 @@ inst2_smpl_buff_rddata(16-iq_width-1 downto 0) <= (others=>'0');
     
     
 --packet reserved bits  
-   inst2_pct_hdr_0(15 downto 0)   <="000000000000" & tx_pct_loss_sync & pct_fifo_wusedw(pct_buff_wrusedw_w-1 downto pct_buff_wrusedw_w-3);
-   inst2_pct_hdr_0(31 downto 16)  <=x"0201";
-   inst2_pct_hdr_0(47 downto 32)  <=x"0403";
-   inst2_pct_hdr_0(63 downto 48)  <=x"0605";
+inst2_pct_hdr_0(15 downto 0)   <="000000000000" & tx_pct_loss_sync & pct_fifo_wusedw(pct_buff_wrusedw_w-1 downto pct_buff_wrusedw_w-3);
+inst2_pct_hdr_0(31 downto 16)  <=x"0201";
+inst2_pct_hdr_0(47 downto 32)  <=x"0403";
+inst2_pct_hdr_0(63 downto 48)  <=x"0605";
 
         
 -- ----------------------------------------------------------------------------
@@ -474,7 +482,60 @@ my_mode <= "00" when (mimo_en_sync = '0' and ddr_en_sync = '1') else
            "10" when ((mimo_en_sync = '1' or trxiqpulse_sync = '1') and (ch_en_sync(0) xor ch_en_sync(1)) = '1' ) else
            "11";
 
+
+			  
+-- ----------------------------------------------------------------------------
+-- TX Holdover Test Code
+-- ----------------------------------------------------------------------------
+process(clk)
+
+variable counter_val : INTEGER := 0;
+
+begin
+
+	if (clk'event and clk = '0') then
+	
+		-- Double Buffer PPS
+		prev_flag_sync <= curr_flag_sync;
+		curr_flag_sync <= ext_flag_sync;
+
+		-- Generate Counter Reset
+		if (curr_flag_sync = '1') AND (prev_flag_sync = '0') then
+			cntr_rst <= '1';
+		else
+			cntr_rst <= '0';
+		end if;
+		
+	end if;
+
+	if (clk'event and clk = '1') then
+	
+		counter_val := counter_val + 1;
+	
+		if (counter_val = 30720000) or (cntr_rst = '1') then
+			counter_val := 0;
+			tx_evt <= '1';
+		end if;
+		
+		if (counter_val = 2000) then
+			tx_evt <= '0';
+		end if;
+			
+	end if;
+	
+	
+end process; 
+
+			
+			
+	
+
+			  
 end arch;
+
+-- ----------------------------------------------------------------------------
+-- MODE Settings
+-- ----------------------------------------------------------------------------
 
 -- my_mode:
 -- '00' is SISO DDR - Here there is one clock tick per sample, but the counter increments every second time.

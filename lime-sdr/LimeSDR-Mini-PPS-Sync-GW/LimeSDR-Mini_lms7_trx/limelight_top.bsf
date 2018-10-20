@@ -338,6 +338,13 @@ refer to the applicable agreement for further details.
 		(text "smpl_cmp_err" (rect 327 235 387 247)(font "Arial" ))
 		(line (pt 408 240)(pt 392 240)(line_width 1))
 	)
+	(port
+		(pt 408 256)
+		(output)
+		(text "tx_ext_flag" (rect 0 0 44 12)(font "Arial" ))
+		(text "tx_ext_flag" (rect 343 251 387 263)(font "Arial" ))
+		(line (pt 408 256)(pt 392 256)(line_width 1))
+	)
 	(parameter
 		"dev_family"
 		"Cyclone V"

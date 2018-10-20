@@ -85,7 +85,10 @@ entity limelight_top is
       smpl_cmp_err         : out std_logic;
 
 		-- EDIT: External RX Sync Flag
-		rx_ext_flag					: in std_logic     
+		rx_ext_flag				: in std_logic;
+	
+		-- EDIT: TX Event Flag
+		tx_ext_flag				: out std_logic
 
         );
 end limelight_top;
@@ -174,8 +177,12 @@ begin
       smpl_cmp_err         => smpl_cmp_err,
 		
 		-- EDIT: External RX Sync Flag
-		ext_flag 				=> rx_ext_flag     
-        );
+		ext_flag 				=> rx_ext_flag,
+		
+		-- EDIT: TX Event Flag
+		tx_evt					=> tx_ext_flag	
+			
+	  );
         
         
         
